@@ -1,0 +1,181 @@
+GIT
+
+-- Distributed Version Control Tool
+
+-- Why Git ?
+To track of changes happing in the project
+Used by the developers to collbarate with each other
+Branching and merging is made easy.
+
+-- Free, open source
+
+Version
+
+1.2.3
+Major version. minor version. bugfix
+
+8.2.5
+
+8.3.5
+
+Access the Git
+
+1) Git Bash - CLI  -- preferred
+2) Integerate GIT with any IDE
+
+2 Types repositories
+
+1) Local Repository -- folder in your m/c
+2) Remote Repository -- folder in the web
+
+---------------------------------------------------------
+steps to be done
+
+1) Install git in your m/c
+2) Create an account in github(web)
+3) Create a repository in the web(remote repository)
+
+4) create a folder in the system
+5) From git bash, redirect to the folder in the system
+Admin@Disney MINGW64 ~
+$ pwd
+/c/Users/Admin
+
+Admin@Disney MINGW64 ~
+$ cd d:
+
+Admin@Disney MINGW64 /d
+$ cd 2025-Apr-Wipro/mygit/
+
+Admin@Disney MINGW64 /d/2025-Apr-Wipro/mygit
+$
+6) Initialise the folder as the git folder  -- git init
+
+7) Configure all the global settings
+Admin@Disney MINGW64 /d/2025-Apr-Wipro/mygit (master)
+$ git config --global user.name "Deeps"
+
+Admin@Disney MINGW64 /d/2025-Apr-Wipro/mygit (master)
+$ git config --global user.email deep@gmail.com
+
+Admin@Disney MINGW64 /d/2025-Apr-Wipro/mygit (master)
+$ git config --global core.editor code
+
+Admin@Disney MINGW64 /d/2025-Apr-Wipro/mygit (master)
+$ git config --list                                       -- cmd to check all the list of configuration
+
+Admin@Disney MINGW64 /d/2025-Apr-Wipro/mygit (master)
+$ git clone https://github.com/chntraining/aprwipro.git
+Cloning into 'aprwipro'...
+warning: You appear to have cloned an empty repository.
+
+Admin@Disney MINGW64 /d/2025-Apr-Wipro/mygit (master)
+$ cd aprwipro/
+
+
+-- Adding a file in the Local repo:
+Admin@Disney MINGW64 /d/2025-Apr-Wipro/mygit/aprwipro (main)
+$ echo Good Evening > file1.txt    -- file1.txt got created in the working area.
+
+git status
+git add file1.txt		-- Push the changes in the Working directory to the statging area
+
+git status
+git commit -m "First Commit"    -- The changes are made permanent in the local repository / git repo
+
+-- Edit the file
+git status
+git add file1.txt
+git status
+ git commit -m "Changed Evening to Morning"
+
+-- If multiple files are created / edited
+echo Hi > f1.txt
+ echo Hello > f2.txt
+ git status
+ git add .
+ git status
+git commit -m "Created f1.txt and f2.txt"
+
+-- Rename the file
+ mv f2.txt f3.txt
+git status
+git add .
+ git status
+ git commit -m "Renamed f2.txt f3.txt"
+
+------------
+ git mv f3.txt f4.txt
+git status
+ git commit -m "f3.txt to f4.txt"
+
+
+-------------------
+-- Remove a file
+ git rm f2.txt
+git status
+ git commit -m "Deleted f2.txt"
+
+===========================================
+Short Status   -- git status -s
+
+Admin@Disney MINGW64 /d/2025-Apr-Wipro/mygit/aprwipro (main)
+$ echo Great > f5.txt
+
+Admin@Disney MINGW64 /d/2025-Apr-Wipro/mygit/aprwipro (main)
+$ git status -s
+?? f5.txt   	-- untracked files
+
+xy
+
+x - status in staging area(index)
+y - unstaged changes
+
+Admin@Disney MINGW64 /d/2025-Apr-Wipro/mygit/aprwipro (main)
+$ git status -s
+A_  f5.txt		-- A for Added and staged
+
+$ git commit -m "Created f5.txt"
+
+------------------------------
+Editing the file
+$ git status -s
+_M f5.txt		-- Modified but not staged . It is in working directory
+$ git add .
+$ git status -s
+M_  f5.txt		-- Modified but statged
+
+$ git commit -m "modified f5.txt"
+
+-----------------------------
+Renamed
+$ git mv f5.txt f6.txt
+$ git status -s
+R  f5.txt -> f6.txt
+$ git commit -m "Renamed f5.txt f6.txt"
+
+
+--------------------------------
+Copy contents / file 
+ cp f6.txt f7.txt
+$ git status -s
+?? f7.txt
+$ git add .
+$ git status -s
+A_  f7.txt
+$ git commit -m "f7.txt created from f6.txt"
+
+-------
+create a file f8.txt manually in the drive and copy the text from f1.txt to it
+$ git status -s
+?? f8.txt
+$ git add .
+$ git status -s
+A  f8.txt
+$ git commit -m "f8.txt is created with the content of f1.txt"
+
+-------------------------------------------------
+
+
+
+
